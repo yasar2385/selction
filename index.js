@@ -46,11 +46,15 @@ let methods = {
     window.getSelection().addRange(range);
   },
 };
-
+var MethodString = [];
+var Method = document.getElementById('Method');
 for (let method in methods) {
-  document.write(
+  MethodString.push(
     `<div><button onclick="methods.${method}()">${method}</button></div>`
   );
 }
+Method.append(
+  document.createRange().createContextualFragment(MethodString.join(''))
+);
 
 methods.resetExample();

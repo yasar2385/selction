@@ -1,9 +1,8 @@
-h1, h2 {
+h1,
+h2 {
   font-family: Lato;
 }
 
-
-.show::after .demo{
-  content: '1';
-
+#app {
+  margin-top: 5em;
 }
