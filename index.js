@@ -6,7 +6,6 @@ const appDiv = document.getElementById('app');
 appDiv.innerHTML = `<h1>JS Starter</h1>`;
 var p = document.getElementById('p');
 let range = new Range();
-
 // Each demonstrated method is represented here:
 let methods = {
   deleteContents() {
@@ -58,3 +57,19 @@ Method.append(
 );
 
 methods.resetExample();
+function selectElementContents(el) {
+  var range = document.createRange();
+  range.selectNodeContents(el);
+  var sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+}
+window.addEventListener('DOMContentLoaded', function () {
+  inputArea.onpaste = function (e) {
+    var range = document.createRange();
+    range.selectNodeContents(e.target);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  };
+});
